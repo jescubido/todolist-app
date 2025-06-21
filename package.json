@@ -1,25 +1,16 @@
 {
-  "name": "my-next-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "15.3.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.10",
-    "typescript": "^5"
+    "name": "todolist-app",
+    "private": true,
+    "workspaces": ["src/*"],
+    "scripts": {
+    "dev:client": "npm --prefix src/client run dev",
+    "dev:server": "npm --prefix src/server run dev",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "build:client": "npm --prefix src/client run build",
+    "start:client": "npm --prefix src/client run start"
+    },
+    "devDependencies": {
+      "concurrently": "^8.2.0"
+    }
   }
-}
+  
